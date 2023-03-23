@@ -1,0 +1,8 @@
+                    {% if option.name == 'Color' %}
+                      <label for="singleSelector-{{ option.name | handleize }}-{{ forloop.index }}" style="background-image:url( {{ product.variants[forloop.index0].image | img_url:'' }} )"></label>
+                    {% else %}
+                     <label for="singleSelector-{{ option.name | handleize }}-{{ forloop.index }}">{{ value }}</label>          
+                    {% endif %}
+                    
+                    
+                 source:https://www.youtube.com/watch?v=7T_CxN7U0Rc&t=379s
