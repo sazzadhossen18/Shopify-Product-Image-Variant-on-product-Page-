@@ -6,3 +6,10 @@
                     
                     
                  source:https://www.youtube.com/watch?v=7T_CxN7U0Rc&t=379s
+label.varintimage {
+  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 55px;
+    width: 55px;
+}
