@@ -98,3 +98,25 @@ Sinnet:
   {% endfor %}
 {% endfor %}
 <img src="{{ img_url | rstrip }}" class="aus-vimg">
+
+
+
+Css::
+========
+img.aus-vimg {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
