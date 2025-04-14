@@ -112,6 +112,49 @@ img.aus-vimg {
 }
 
 
+Medth 2:
+========
+
+
+{%- for value in option.values -%}
+  {% for image in product.media %}
+    {% if image.alt contains '&' %}
+      {% assign img_url = image.alt | split: '&' | last | strip %}
+      {% if img_url contains value %}
+        {% assign img = image | img_url: 'master' %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  <span class="swatch__button" data-tooltip="{{ value | escape_once | capitalize }}">
+    <input
+      type="radio"
+      data-single-option-selector
+      data-index="option{{ option.position }}"
+      name="options[{{ option.name | escape_once }}]"
+      value="{{ value | escape_once }}"
+      id="{{ input_id }}"
+      data-opt-name="{{ option.name | downcase  }}"
+      data-opt-value="{{ value | downcase }}"
+      {% if value == current_value %}
+        checked
+      {% endif %}
+    >
+    <label
+      class="customOption custom_swatch{% if option.selected_value == value %} customActive {% endif %}{% if varQty <= 0 %} customCrossed {% endif %}"
+      for="{{ input_id }}"
+      data-swatch="{{ value | escape_once }}"
+      style="
+        background-image: url('{{ img }}') !important;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      "
+    >
+      <span class="visually-hidden">{{ value | escape_once }}</span>
+    </label>
+  </span>
+{% endfor %}
 
 
 
